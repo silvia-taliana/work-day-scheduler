@@ -27,7 +27,7 @@
           <div class="hour">9AM</div>
         </div>
         <div class="col-md-10">
-          <textarea name="schedule" id="schedule" class="description" rows="1"></textarea>
+          <textarea name="schedule" id="9amSchedule" class="description" rows="1"></textarea>
         </div>
         <div class="col-md-1">
           <button class="saveBtn"><i class="fas fa-archive"></i></button>
@@ -39,7 +39,7 @@
           <div class="hour">10AM</div>
         </div>
         <div class="col-md-10">
-          <textarea name="schedule" id="schedule" class="description" rows="1"></textarea>
+          <textarea name="schedule" id="10amSchedule" class="description" rows="1"></textarea>
         </div>
         <div class="col-md-1">
           <button class="saveBtn"><i class="fas fa-archive"></i></button>
@@ -51,7 +51,7 @@
           <div class="hour">11AM</div>
         </div>
         <div class="col-md-10">
-          <textarea name="schedule" id="schedule" class="description" rows="1"></textarea>
+          <textarea name="schedule" id="11amSchedule" class="description" rows="1"></textarea>
         </div>
         <div class="col-md-1">
           <button class="saveBtn"><i class="fas fa-archive"></i></button>
@@ -63,7 +63,7 @@
           <div class="hour">12PM</div>
         </div>
         <div class="col-md-10">
-          <textarea name="schedule" id="schedule" class="description" rows="1"></textarea>
+          <textarea name="schedule" id="12pmSchedule" class="description" rows="1"></textarea>
         </div>
         <div class="col-md-1">
           <button class="saveBtn"><i class="fas fa-archive"></i></button>
@@ -75,7 +75,7 @@
           <div class="hour">1PM</div>
         </div>
         <div class="col-md-10">
-          <textarea name="schedule" id="schedule" class="description" rows="1"></textarea>
+          <textarea name="schedule" id="1pmSchedule" class="description" rows="1"></textarea>
         </div>
         <div class="col-md-1">
           <button class="saveBtn"><i class="fas fa-archive"></i></button>
@@ -87,7 +87,7 @@
           <div class="hour">2PM</div>
         </div>
         <div class="col-md-10">
-          <textarea name="schedule" id="schedule" class="description" rows="1"></textarea>
+          <textarea name="schedule" id="2mpSchedule" class="description" rows="1"></textarea>
         </div>
         <div class="col-md-1">
           <button class="saveBtn"><i class="fas fa-archive"></i></button>
@@ -99,7 +99,7 @@
           <div class="hour">3PM</div>
         </div>
         <div class="col-md-10">
-          <textarea name="schedule" id="schedule" class="description" rows="1"></textarea>
+          <textarea name="schedule" id="3pmSchedule" class="description" rows="1"></textarea>
         </div>
         <div class="col-md-1">
           <button class="saveBtn"><i class="fas fa-archive"></i></button>
@@ -111,7 +111,7 @@
           <div class="hour">4PM</div>
         </div>
         <div class="col-md-10">
-          <textarea name="schedule" id="schedule" class="description" rows="1"></textarea>
+          <textarea name="schedule" id="4pmSchedule" class="description" rows="1"></textarea>
         </div>
         <div class="col-md-1">
           <button class="saveBtn"><i class="fas fa-archive"></i></button>
@@ -121,14 +121,36 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <!-- setting date and time using moment.js library -->
+
   <script>
+    // setting date and time using moment.js library
     let m = moment().format('MMMM Do YYYY, h:mm a');
-    var currentDay = document.getElementById("currentDay");
-    currentDay.textContent = m;
+    $("#currentDay").text(m);
+
+    $(".saveBtn").click(function () {
+      let description = $("#9amSchedule").val();
+      localStorage.setItem("task", JSON.stringify(description));
+      console.log(description);
+    });
+
+    var description = JSON.parse(localStorage.getItem("task"));
+    $("#9amSchedule").append(description);
+
+    /*
+colour coding time blocks:
+now = moment();
+moment().isBefore(hour)
+moment().isAfter()
+
+for saving events:
+1. add event listener for save button
+$(".demo").click(function(){
+$(this).hide(200);
+});
+2. store text in local storage localStorage.setItem("enter name of storage", enter element to be stored);
+*/
   </script>
 </body>
 
