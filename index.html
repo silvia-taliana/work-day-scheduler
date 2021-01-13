@@ -87,7 +87,7 @@
           <div class="hour">2PM</div>
         </div>
         <div class="col-md-10">
-          <textarea name="schedule" id="2mpSchedule" class="description" rows="1"></textarea>
+          <textarea name="schedule" id="2pmSchedule" class="description" rows="1"></textarea>
         </div>
         <div class="col-md-1">
           <button class="saveBtn"><i class="fas fa-archive"></i></button>
@@ -129,28 +129,108 @@
     let m = moment().format('MMMM Do YYYY, h:mm a');
     $("#currentDay").text(m);
 
+    // setting save button on click to store text in local storage
     $(".saveBtn").click(function () {
       let description = $("#9amSchedule").val();
       localStorage.setItem("task", JSON.stringify(description));
       console.log(description);
     });
 
+    // appending local storage back to the page so it appears when page is refreshed
     var description = JSON.parse(localStorage.getItem("task"));
     $("#9amSchedule").append(description);
 
-    /*
-colour coding time blocks:
-now = moment();
-moment().isBefore(hour)
-moment().isAfter()
+    var now = moment();
 
-for saving events:
-1. add event listener for save button
-$(".demo").click(function(){
-$(this).hide(200);
-});
-2. store text in local storage localStorage.setItem("enter name of storage", enter element to be stored);
-*/
+    // setting classes to color code past, present and future time blocks
+    // 9AM
+    if (now.isAfter(moment().hour(10))) {
+      $("#9amSchedule").addClass("past");
+    }
+    else if (now.isBefore(moment().hour(9))) {
+      $("#9amSchedule").addClass("future");
+    }
+    else {
+      $("#9amSchedule").addClass("present");
+    };
+
+    // 10AM
+    if (now.isAfter(moment().hour(11))) {
+      $("#10amSchedule").addClass("past");
+    }
+    else if (now.isBefore(moment().hour(10))) {
+      $("#10amSchedule").addClass("future");
+    }
+    else {
+      $("#10amSchedule").addClass("present");
+    };
+
+    // 11AM
+    if (now.isAfter(moment().hour(12))) {
+      $("#11amSchedule").addClass("past");
+    }
+    else if (now.isBefore(moment().hour(11))) {
+      $("#11amSchedule").addClass("future");
+    }
+    else {
+      $("#11amSchedule").addClass("present");
+    };
+
+    // 12PM
+    if (now.isAfter(moment().hour(13))) {
+      $("#12pmSchedule").addClass("past");
+    }
+    else if (now.isBefore(moment().hour(12))) {
+      $("#12pmSchedule").addClass("future");
+    }
+    else {
+      $("#12pmSchedule").addClass("present");
+    };
+
+    // 1PM
+    if (now.isAfter(moment().hour(13))) {
+      $("#1pmSchedule").addClass("past");
+    }
+    else if (now.isBefore(moment().hour(13))) {
+      $("#1pmSchedule").addClass("future");
+    }
+    else {
+      $("#1pmSchedule").addClass("present");
+    };
+
+    // 2PM
+    if (now.isAfter(moment().hour(14))) {
+      $("#2pmSchedule").addClass("past");
+    }
+    else if (now.isBefore(moment().hour(14))) {
+      $("#2pmSchedule").addClass("future");
+    }
+    else {
+      $("#2pmSchedule").addClass("present");
+    };
+
+    // 3PM
+    if (now.isAfter(moment().hour(15))) {
+      $("#3pmSchedule").addClass("past");
+    }
+    else if (now.isBefore(moment().hour(15))) {
+      $("#3pmSchedule").addClass("future");
+    }
+    else {
+      $("#3pmSchedule").addClass("present");
+    };
+
+    // 4PM
+    if (now.isAfter(moment().hour(16))) {
+      $("#4pmSchedule").addClass("past");
+    }
+    else if (now.isBefore(moment().hour(16))) {
+      $("#4pmSchedule").addClass("future");
+    }
+    else {
+      $("#4pmSchedule").addClass("present");
+    };
+
   </script>
 </body>
 
