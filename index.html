@@ -129,25 +129,117 @@
     let m = moment().format('MMMM Do YYYY, h:mm a');
     $("#currentDay").text(m);
 
+    // attempt to make an array
+    // var $array = [];
+    // $("textarea").each(function () {
+    //   var nine = $("#9amSchedule").val();
+    //   var ten = $("#10amSchedule").val();
+    //   var eleven = $("#11amSchedule").val();
+    //   var twelve = $("#12pmSchedule").val();
+    //   var thirteen = $("#1pmSchedule").val();
+    //   var fourteen = $("#2pmSchedule").val();
+    //   var fifteen = $("#3pmSchedule").val();
+    //   var sixteen = $("#4pmSchedule").val();
+    //   $array.push(nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen);
+    // });
+    // $array.forEach(myFunction);
+
+    // function myFunction(item, index) {
+    //   for (var i = 0; i < $array.length; i++) {
+    //     // setting save button on click to store text in local storage
+    //     $(".saveBtn").click(function () {
+    //       let description = $array[i];
+    //       localStorage.setItem("task", JSON.stringify(description));
+    //       console.log(description);
+    //     });
+    //   }
+    // }
+
     // setting save button on click to store text in local storage
     $(".saveBtn").click(function () {
-      let description = $("#9amSchedule").val();
-      localStorage.setItem("task", JSON.stringify(description));
-      console.log(description);
+      let nine = $("#9amSchedule").val();
+      localStorage.setItem("task9", JSON.stringify(nine));
+      console.log(nine);
+    });
+
+    $(".saveBtn").click(function () {
+      let ten = $("#10amSchedule").val();
+      localStorage.setItem("task10", JSON.stringify(ten));
+      console.log(ten);
+    });
+
+    $(".saveBtn").click(function () {
+      let eleven = $("#11amSchedule").val();
+      localStorage.setItem("task11", JSON.stringify(eleven));
+      console.log(eleven);
+    });
+
+    $(".saveBtn").click(function () {
+      let twelve = $("#12pmSchedule").val();
+      localStorage.setItem("task12", JSON.stringify(twelve));
+      console.log(twelve);
+    });
+
+    $(".saveBtn").click(function () {
+      let thirteen = $("#1pmSchedule").val();
+      localStorage.setItem("task1", JSON.stringify(thirteen));
+      console.log(thirteen);
+    });
+
+    $(".saveBtn").click(function () {
+      let fourteen = $("#2pmSchedule").val();
+      localStorage.setItem("task2", JSON.stringify(fourteen));
+      console.log(fourteen);
+    });
+
+    $(".saveBtn").click(function () {
+      let fifteen = $("#3pmSchedule").val();
+      localStorage.setItem("task3", JSON.stringify(fifteen));
+      console.log(fifteen);
+    });
+
+    $(".saveBtn").click(function () {
+      let sixteen = $("#4pmSchedule").val();
+      localStorage.setItem("task4", JSON.stringify(sixteen));
+      console.log(sixteen);
     });
 
     // appending local storage back to the page so it appears when page is refreshed
-    var description = JSON.parse(localStorage.getItem("task"));
-    $("#9amSchedule").append(description);
+    var nine = JSON.parse(localStorage.getItem("task9"));
+    $("#9amSchedule").append(nine);
 
-    var now = moment();
+    var ten = JSON.parse(localStorage.getItem("task10"));
+    $("#10amSchedule").append(ten);
+
+    var eleven = JSON.parse(localStorage.getItem("task11"));
+    $("#11amSchedule").append(eleven);
+
+    var twelve = JSON.parse(localStorage.getItem("task12"));
+    $("#12pmSchedule").append(twelve);
+
+    var thirteen = JSON.parse(localStorage.getItem("task1"));
+    $("#1pmSchedule").append(thirteen);
+
+    var fourteen = JSON.parse(localStorage.getItem("task2"));
+    $("#2pmSchedule").append(fourteen);
+
+    var fifteen = JSON.parse(localStorage.getItem("task3"));
+    $("#3pmSchedule").append(fifteen);
+
+    var sixteen = JSON.parse(localStorage.getItem("task4"));
+    $("#4pmSchedule").append(sixteen);
+
+    //setting current time
+    var now = moment().hour();
+    console.log(now);
 
     // setting classes to color code past, present and future time blocks
+
     // 9AM
-    if (now.isAfter(moment().hour(10))) {
+    if (now >= 10) {
       $("#9amSchedule").addClass("past");
     }
-    else if (now.isBefore(moment().hour(9))) {
+    else if (now < 9) {
       $("#9amSchedule").addClass("future");
     }
     else {
@@ -155,10 +247,10 @@
     };
 
     // 10AM
-    if (now.isAfter(moment().hour(11))) {
+    if (now >= 11) {
       $("#10amSchedule").addClass("past");
     }
-    else if (now.isBefore(moment().hour(10))) {
+    else if (now < 10) {
       $("#10amSchedule").addClass("future");
     }
     else {
@@ -166,10 +258,10 @@
     };
 
     // 11AM
-    if (now.isAfter(moment().hour(12))) {
+    if (now >= 12) {
       $("#11amSchedule").addClass("past");
     }
-    else if (now.isBefore(moment().hour(11))) {
+    else if (now < 11) {
       $("#11amSchedule").addClass("future");
     }
     else {
@@ -177,10 +269,10 @@
     };
 
     // 12PM
-    if (now.isAfter(moment().hour(13))) {
+    if (now >= 13) {
       $("#12pmSchedule").addClass("past");
     }
-    else if (now.isBefore(moment().hour(12))) {
+    else if (now < 12) {
       $("#12pmSchedule").addClass("future");
     }
     else {
@@ -188,10 +280,10 @@
     };
 
     // 1PM
-    if (now.isAfter(moment().hour(13))) {
+    if (now >= 14) {
       $("#1pmSchedule").addClass("past");
     }
-    else if (now.isBefore(moment().hour(13))) {
+    else if (now < 13) {
       $("#1pmSchedule").addClass("future");
     }
     else {
@@ -199,10 +291,10 @@
     };
 
     // 2PM
-    if (now.isAfter(moment().hour(14))) {
+    if (now >= 15) {
       $("#2pmSchedule").addClass("past");
     }
-    else if (now.isBefore(moment().hour(14))) {
+    else if (now < 14) {
       $("#2pmSchedule").addClass("future");
     }
     else {
@@ -210,10 +302,10 @@
     };
 
     // 3PM
-    if (now.isAfter(moment().hour(15))) {
+    if (now >= 16) {
       $("#3pmSchedule").addClass("past");
     }
-    else if (now.isBefore(moment().hour(15))) {
+    else if (now < 15) {
       $("#3pmSchedule").addClass("future");
     }
     else {
@@ -221,15 +313,98 @@
     };
 
     // 4PM
-    if (now.isAfter(moment().hour(16))) {
+    if (now >= 17) {
       $("#4pmSchedule").addClass("past");
     }
-    else if (now.isBefore(moment().hour(16))) {
+    else if (now < 16) {
       $("#4pmSchedule").addClass("future");
     }
     else {
       $("#4pmSchedule").addClass("present");
     };
+
+
+    /*
+    if (now.isSame(moment().hour(9))) {
+      $("#9amSchedule").addClass("present");
+    }
+    else if (now.isAfter(moment().hour(10))) {
+      $("#9amSchedule").addClass("past");
+    }
+    else {
+      $("#9amSchedule").addClass("future");
+    };
+
+    if (now.isSame(moment().hour(10))) {
+      $("#10amSchedule").addClass("present");
+    }
+    else if (now.isAfter(moment().hour(11))) {
+      $("#10amSchedule").addClass("past");
+    }
+    else {
+      $("#10amSchedule").addClass("future");
+    };
+
+    if (now.isSame(moment().hour(11))) {
+      $("#11amSchedule").addClass("present");
+    }
+    else if (now.isAfter(moment().hour(12))) {
+      $("#11amSchedule").addClass("past");
+    }
+    else {
+      $("#11amSchedule").addClass("future");
+    };
+
+    if (now.isSame(moment().hour(12))) {
+      $("#12pmSchedule").addClass("present");
+    }
+    else if (now.isAfter(moment().hour(13))) {
+      $("#12pmSchedule").addClass("past");
+    }
+    else {
+      $("#12pmSchedule").addClass("future");
+    };
+
+    if (now.isSame(moment().hour(13))) {
+      $("#1pmSchedule").addClass("present");
+    }
+    else if (now.isAfter(moment().hour(14))) {
+      $("#1pmSchedule").addClass("past");
+    }
+    else {
+      $("#1pmSchedule").addClass("future");
+    };
+
+    if (now.isSame(moment().hour(14))) {
+      $("#2pmSchedule").addClass("present");
+    }
+    else if (now.isAfter(moment().hour(15))) {
+      $("#2pmSchedule").addClass("past");
+    }
+    else {
+      $("#2pmSchedule").addClass("future");
+    };
+
+    if (now.isSame(moment().hour(15))) {
+      $("#3pmSchedule").addClass("present");
+    }
+    else if (now.isAfter(moment().hour(16))) {
+      $("#3pmSchedule").addClass("past");
+    }
+    else {
+      $("#3pmSchedule").addClass("future");
+    };
+
+    if (now.isSame(moment().hour(16))) {
+      $("#4pmSchedule").addClass("present");
+    }
+    else if (now.isAfter(moment().hour(17))) {
+      $("#4pmSchedule").addClass("past");
+    }
+    else {
+      $("#4pmSchedule").addClass("future");
+    };
+    */
 
   </script>
 </body>
