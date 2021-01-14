@@ -129,79 +129,71 @@
     let m = moment().format('MMMM Do YYYY, h:mm a');
     $("#currentDay").text(m);
 
-    // attempt to make an array
-    // var $array = [];
-    // $("textarea").each(function () {
-    //   var nine = $("#9amSchedule").val();
-    //   var ten = $("#10amSchedule").val();
-    //   var eleven = $("#11amSchedule").val();
-    //   var twelve = $("#12pmSchedule").val();
-    //   var thirteen = $("#1pmSchedule").val();
-    //   var fourteen = $("#2pmSchedule").val();
-    //   var fifteen = $("#3pmSchedule").val();
-    //   var sixteen = $("#4pmSchedule").val();
-    //   $array.push(nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen);
-    // });
-    // $array.forEach(myFunction);
+    // attempt to make an array
+    // var $array = [];
+    // $("textarea").each(function () {
+    //   var nine = $("#9amSchedule").val();
+    //   var ten = $("#10amSchedule").val();
+    //   var eleven = $("#11amSchedule").val();
+    //   var twelve = $("#12pmSchedule").val();
+    //   var thirteen = $("#1pmSchedule").val();
+    //   var fourteen = $("#2pmSchedule").val();
+    //   var fifteen = $("#3pmSchedule").val();
+    //   var sixteen = $("#4pmSchedule").val();
+    //   $array.push(nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen);
+    // });
+    // $array.forEach(myFunction);
 
-    // function myFunction(item, index) {
-    //   for (var i = 0; i < $array.length; i++) {
-    //     // setting save button on click to store text in local storage
-    //     $(".saveBtn").click(function () {
-    //       let description = $array[i];
-    //       localStorage.setItem("task", JSON.stringify(description));
-    //       console.log(description);
-    //     });
-    //   }
-    // }
+    // function myFunction(item, index) {
+    //   for (var i = 0; i < $array.length; i++) {
+    //     // setting save button on click to store text in local storage
+    //     $(".saveBtn").click(function () {
+    //       let description = $array[i];
+    //       localStorage.setItem("task", JSON.stringify(description));
+    //       console.log(description);
+    //     });
+    //   }
+    // }
 
     // setting save button on click to store text in local storage
     $(".saveBtn").click(function () {
       let nine = $("#9amSchedule").val();
       localStorage.setItem("task9", JSON.stringify(nine));
-      console.log(nine);
     });
 
     $(".saveBtn").click(function () {
       let ten = $("#10amSchedule").val();
       localStorage.setItem("task10", JSON.stringify(ten));
-      console.log(ten);
     });
 
     $(".saveBtn").click(function () {
       let eleven = $("#11amSchedule").val();
       localStorage.setItem("task11", JSON.stringify(eleven));
-      console.log(eleven);
     });
 
     $(".saveBtn").click(function () {
       let twelve = $("#12pmSchedule").val();
       localStorage.setItem("task12", JSON.stringify(twelve));
-      console.log(twelve);
     });
 
     $(".saveBtn").click(function () {
       let thirteen = $("#1pmSchedule").val();
       localStorage.setItem("task1", JSON.stringify(thirteen));
-      console.log(thirteen);
     });
 
     $(".saveBtn").click(function () {
       let fourteen = $("#2pmSchedule").val();
       localStorage.setItem("task2", JSON.stringify(fourteen));
-      console.log(fourteen);
     });
 
     $(".saveBtn").click(function () {
       let fifteen = $("#3pmSchedule").val();
       localStorage.setItem("task3", JSON.stringify(fifteen));
-      console.log(fifteen);
     });
 
     $(".saveBtn").click(function () {
       let sixteen = $("#4pmSchedule").val();
       localStorage.setItem("task4", JSON.stringify(sixteen));
-      console.log(sixteen);
     });
 
     // appending local storage back to the page so it appears when page is refreshed
@@ -234,7 +226,6 @@
     console.log(now);
 
     // setting classes to color code past, present and future time blocks
-
     // 9AM
     if (now >= 10) {
       $("#9amSchedule").addClass("past");
@@ -246,7 +237,7 @@
       $("#9amSchedule").addClass("present");
     };
 
-    // 10AM
+    // 10AMS
     if (now >= 11) {
       $("#10amSchedule").addClass("past");
     }
@@ -322,89 +313,6 @@
     else {
       $("#4pmSchedule").addClass("present");
     };
-
-
-    /*
-    if (now.isSame(moment().hour(9))) {
-      $("#9amSchedule").addClass("present");
-    }
-    else if (now.isAfter(moment().hour(10))) {
-      $("#9amSchedule").addClass("past");
-    }
-    else {
-      $("#9amSchedule").addClass("future");
-    };
-
-    if (now.isSame(moment().hour(10))) {
-      $("#10amSchedule").addClass("present");
-    }
-    else if (now.isAfter(moment().hour(11))) {
-      $("#10amSchedule").addClass("past");
-    }
-    else {
-      $("#10amSchedule").addClass("future");
-    };
-
-    if (now.isSame(moment().hour(11))) {
-      $("#11amSchedule").addClass("present");
-    }
-    else if (now.isAfter(moment().hour(12))) {
-      $("#11amSchedule").addClass("past");
-    }
-    else {
-      $("#11amSchedule").addClass("future");
-    };
-
-    if (now.isSame(moment().hour(12))) {
-      $("#12pmSchedule").addClass("present");
-    }
-    else if (now.isAfter(moment().hour(13))) {
-      $("#12pmSchedule").addClass("past");
-    }
-    else {
-      $("#12pmSchedule").addClass("future");
-    };
-
-    if (now.isSame(moment().hour(13))) {
-      $("#1pmSchedule").addClass("present");
-    }
-    else if (now.isAfter(moment().hour(14))) {
-      $("#1pmSchedule").addClass("past");
-    }
-    else {
-      $("#1pmSchedule").addClass("future");
-    };
-
-    if (now.isSame(moment().hour(14))) {
-      $("#2pmSchedule").addClass("present");
-    }
-    else if (now.isAfter(moment().hour(15))) {
-      $("#2pmSchedule").addClass("past");
-    }
-    else {
-      $("#2pmSchedule").addClass("future");
-    };
-
-    if (now.isSame(moment().hour(15))) {
-      $("#3pmSchedule").addClass("present");
-    }
-    else if (now.isAfter(moment().hour(16))) {
-      $("#3pmSchedule").addClass("past");
-    }
-    else {
-      $("#3pmSchedule").addClass("future");
-    };
-
-    if (now.isSame(moment().hour(16))) {
-      $("#4pmSchedule").addClass("present");
-    }
-    else if (now.isAfter(moment().hour(17))) {
-      $("#4pmSchedule").addClass("past");
-    }
-    else {
-      $("#4pmSchedule").addClass("future");
-    };
-    */
 
   </script>
 </body>
